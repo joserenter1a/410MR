@@ -3,7 +3,7 @@
 ## Monster Run
 - A wave based game in which you fight off enemies through different levels of increasing difficulties.
 
-Project Owner - Cameron O'Connor
-Asset Manager - Carson Hellman
-Gameplay Designer - Joseph Macalinao
-Sound Designer - Jose Renteria
+- Project Owner - Cameron O'Connor
+- Asset Manager - Carson Hellman
+- Gameplay Designer - Joseph Macalinao
+- Sound Designer - Jose Renteria
