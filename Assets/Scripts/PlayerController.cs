@@ -32,7 +32,10 @@ public class PlayerController : MonoBehaviour
         bool hasHorizontalInput = !Mathf.Approximately(horizontal, 0f);
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
         bool isWalking = hasHorizontalInput || hasVerticalInput;
-        m_Animator.SetBool("IsWalking", isWalking); 
+        //bool checkAttack = 
+        bool Attack = Input.GetMouseButtonDown(0);
+        m_Animator.SetBool("IsWalking", isWalking);
+        m_Animator.SetBool("Attack", Attack); 
         if(!isWalking)
         {
             m_timer += Time.deltaTime;
@@ -46,17 +49,31 @@ public class PlayerController : MonoBehaviour
             m_Animator.SetBool("IsWalking", true);
             m_timer = 0f;
         }
+        if(Attack)
+        {
+            m_timer += Time.deltaTime;
+            /*if(m_timer >= m_idleTime)
+            {
+                m_Animator.SetBool("Attack", false);
+                m_timer = 0f;
+            }
+        } else*/
+        
+            m_Animator.SetTrigger("Attack");
+            m_timer = 0f;
+        }
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
-        //OnAnimatorMove();
-        
     }
 
     void OnAnimatorMove()
     {
-        Debug.Log("YUUHHHHH");
         m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * .2f);//m_Animator.deltaPosition.magnitude);
         m_Rigidbody.MoveRotation(m_Rotation);
+    }
+
+    void OnButtonCkick(){
+        m_Animator.SetBool("Attack", true);
     }
 }
