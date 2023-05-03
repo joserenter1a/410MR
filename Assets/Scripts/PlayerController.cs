@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
 
     public WaveSpawner WaveSpawner;
 
-    public float turnSpeed = 20f;
+    public float movementMultiplier = 0.048f;
+    public float turnSpeed = 14f;
     float m_timer = 0.0f;
     float m_idleTime = 0.4f;
     public float jumpHeight = 2f;
@@ -41,9 +42,9 @@ public class PlayerController : MonoBehaviour
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
         bool isWalking = hasHorizontalInput || hasVerticalInput;
         //bool checkAttack = 
-        bool Attack = Input.GetMouseButtonDown(0);
+        //bool Attack = Input.GetMouseButtonDown(0);
         m_Animator.SetBool("IsWalking", isWalking);
-        m_Animator.SetBool("Attack", Attack); 
+        //m_Animator.SetBool("Attack", Attack); 
         if(!isWalking)
         {
             m_timer += Time.deltaTime;
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
+            m_Animator.Play("Jump");
             m_Rigidbody.AddForce(jump * jumpHeight, ForceMode.Impulse);
             isGrounded = false;
         }
@@ -81,13 +83,13 @@ public class PlayerController : MonoBehaviour
         m_Rotation = Quaternion.LookRotation(desiredForward);
     }
 
-    void OnCollisionStay(){
+    void OnTriggerStay(){
         isGrounded = true;
     }
 
     void OnAnimatorMove()
     {
-        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * .123f);//m_Animator.deltaPosition.magnitude);
+        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * movementMultiplier);//m_Animator.deltaPosition.magnitude);
         m_Rigidbody.MoveRotation(m_Rotation);
     }
 
