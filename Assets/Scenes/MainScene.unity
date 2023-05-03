@@ -777,6 +777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HumanMale_Character_FREE
       objectReference: {fileID: 0}
+    - target: {fileID: 6964134460693486448, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1219906944084240037, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
