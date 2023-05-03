@@ -10,7 +10,7 @@ public class WaveSpawner : MonoBehaviour
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
 
     public Transform spawnLocation;
-    public float spawnRadius = 5f;
+    public float spawnRadius = 1f;
 
     public int waveDuration;
     private float waveTimer;
@@ -47,12 +47,14 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
+            //Debug.Log("yes");
             spawnTimer -= Time.fixedDeltaTime;
             waveTimer -= Time.fixedDeltaTime;
         }
 
-        if (waveTimer <= 0 && spawnedEnemies.Count <= 0)
+        if (waveTimer <= 0) //spawnedEnemies.Count <= 0)
         {
+            Debug.Log("yes");
             currWave++;
             GenerateWave();
         }

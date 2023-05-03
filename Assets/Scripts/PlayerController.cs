@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
+
+    public WaveSpawner WaveSpawner;
+
     public float turnSpeed = 20f;
     float m_timer = 0.0f;
     float m_idleTime = 0.4f;
@@ -64,7 +68,7 @@ public class PlayerController : MonoBehaviour
             }
         } else*/
         
-            m_Animator.SetBool("Attack", true);
+            m_Animator.Play("Attack");
             //m_timer = 0f;
         }
 
@@ -90,4 +94,19 @@ public class PlayerController : MonoBehaviour
     void OnButtonCkick(){
         m_Animator.SetBool("Attack", true);
     }
+
+    private void OnTriggerEnter(Collider other){
+
+
+        if(other.gameObject.CompareTag("Human")){
+            other.gameObject.SetActive(false);
+
+            //WaveSpawner.spawnedEnemies.Count--;
+  
+        }
+
+    }
+
+
 }
+
