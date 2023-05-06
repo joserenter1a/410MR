@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using TMPro;
 
 
 public class PlayerController : MonoBehaviour
 {
 
     public WaveSpawner WaveSpawner;
+    public TextMeshProUGUI Conquered;
 
     public float movementMultiplier = 0.048f;
-    public float turnSpeed = 14f;
+    public float turnSpeed = 30f;
     float m_timer = 0.0f;
     float m_idleTime = 0.4f;
     public float jumpHeight = 2f;
     private bool isGrounded;
+
+    
     Animator m_Animator;
     Rigidbody m_Rigidbody;
+    private int count;
     Vector3 m_Movement;
     public Vector3 jump;
     Quaternion m_Rotation = Quaternion.identity;
@@ -27,6 +33,9 @@ public class PlayerController : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+        count = 0;
+
+        SetConqueredText();
     }
 
     // Update is called once per frame
@@ -82,6 +91,10 @@ public class PlayerController : MonoBehaviour
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
     }
+    
+    void SetConqueredText(){
+        Conquered.text = "Defeated: " + count.ToString();
+    }
 
     void OnTriggerStay(){
         isGrounded = true;
@@ -97,17 +110,27 @@ public class PlayerController : MonoBehaviour
         m_Animator.SetBool("Attack", true);
     }
 
-    private void OnTriggerEnter(Collider other){
+    private void OnCollisionEnter(Collision other){
 
 
-        if(other.gameObject.CompareTag("Human")){
+        /*if(other.gameObject.CompareTag("Human")){
+            Debug.Log("ype");
             other.gameObject.SetActive(false);
 
             //WaveSpawner.spawnedEnemies.Count--;
   
+        }*/
+        ContactPoint contact = other.contacts[0];
+        if(other.gameObject.CompareTag("Human")){
+            count = count + 1;
+            Destroy(other.gameObject);
+            
+            SetConqueredText();
+            //WaveSpawner.spawnedEnemies.Count--;
         }
-
     }
+
+
 
 
 }
