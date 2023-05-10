@@ -5,18 +5,35 @@ using UnityEngine;
 public class cameraController : MonoBehaviour
 {
     public GameObject player;
-    private Vector3 offset;
+    public Camera[] cameras;
+    int currentCam = 0;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //offset = (player.transform.position.x, player.transform.position.y + 3.0f, player.transform.position.z - 3.0f);    
-        offset = (player.transform.position) - new Vector3(0f, -3f, 3f);    
+        for (int i = 1; i < cameras.Length; i++) 
+        {
+            cameras[i].gameObject.SetActive(false);
+        }   
+        Cursor.lockState = CursorLockMode.Locked; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position + offset;
+        for (int i = 0; i < cameras.Length; i++) 
+        {
+            float distanceCurrentCam = Vector3.Distance(player.transform.position, cameras[currentCam].transform.position);
+            float distanceCheckedCam = Vector3.Distance(player.transform.position, cameras[i].transform.position);
+
+            if (distanceCheckedCam < distanceCurrentCam) 
+            {
+                cameras[currentCam].gameObject.SetActive(false);
+                cameras[i].gameObject.SetActive(true);
+                currentCam = i;
+            }
+        }
+        cameras[currentCam].transform.LookAt(player.transform);
     }
 }
