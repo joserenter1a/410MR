@@ -940,6 +940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1761891902}
   speed: 1
+  lookTarget: {fileID: 1761891912}
 --- !u!64 &425035509
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2911,6 +2912,11 @@ CapsuleCollider:
   m_Height: 106.93
   m_Direction: 1
   m_Center: {x: 0, y: 55, z: 0}
+--- !u!4 &1761891912 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 435260, guid: 54dd8ae60378d5143b14a2e5e6a8da1e, type: 3}
+  m_PrefabInstance: {fileID: 156706821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1808266222
 GameObject:
   m_ObjectHideFlags: 0

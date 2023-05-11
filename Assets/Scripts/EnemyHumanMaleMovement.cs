@@ -6,6 +6,7 @@ public class EnemyHumanMaleMovement : MonoBehaviour
 {
     public GameObject target; // reference to the target game object
     public float speed; // the speed at which the enemy should move
+    public Transform lookTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +24,6 @@ public class EnemyHumanMaleMovement : MonoBehaviour
 
         // move enemy towards target
         transform.position += direction * speed * Time.deltaTime;
+        transform.LookAt(lookTarget);
     }
 }
