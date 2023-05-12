@@ -63,6 +63,7 @@ public class WaveSpawner : MonoBehaviour
     public void GenerateWave()
     {
         waveValue = currWave * 2;
+        //waveValue = currWave * 1;
         GenerateEnemies();
 
         if (enemiesToSpawn.Count != 0)
