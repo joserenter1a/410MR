@@ -8,7 +8,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
 
-    public WaveSpawner WaveSpawner;
+    ///public WaveSpawner WaveSpawner;
     public TextMeshProUGUI Conquered;
     public SprintController sprintController;
 
