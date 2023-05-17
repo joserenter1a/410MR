@@ -7766,7 +7766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - enemyPrefab: {fileID: 425035503}
-    cost: 2
+    cost: 1
   currWave: 0
   enemiesToSpawn:
   - {fileID: 0}

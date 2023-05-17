@@ -189,7 +189,10 @@ public class WaveSpawner : MonoBehaviour
         waveValue = currWave * 10;
         GenerateEnemies();
  
-        spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies
+        if(enemiesToSpawn.Count != 0)
+        {
+            spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies
+        }
         waveTimer = waveDuration; // wave duration is read only
     }
  
