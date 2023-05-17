@@ -13,7 +13,7 @@ public class cameraOrbit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -28,5 +28,12 @@ public class cameraOrbit : MonoBehaviour
 
         Quaternion QT = Quaternion.Euler(localRot.y, localRot.x, 0f);
         transform.rotation = Quaternion.Lerp(transform.rotation, QT, Time.deltaTime * orbitDamping);
+
+        if (Input.GetKeyDown("escape"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        // if want could also use this to unlock cursor but keep in screen
+        // Cursor.lockState = CursorLockMode.Confined;
     }
 }
