@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
 
     public WaveSpawner WaveSpawner;
     public TextMeshProUGUI Conquered;
-    public SprintController sprintController;
 
     public float movementMultiplier = 0.048f;
     public float turnSpeed = 30f;
@@ -51,13 +50,6 @@ public class PlayerController : MonoBehaviour
         bool hasHorizontalInput = !Mathf.Approximately(horizontal, 0f);
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
         bool isWalking = hasHorizontalInput || hasVerticalInput;
-
-        bool isSprinting = sprintController.isSprinting;
-
-        // Set the IsSprinting parameter of the animator based on the sprinting state
-        m_Animator.SetBool("IsSprinting", isSprinting);
-
-
         m_Animator.SetBool("IsWalking", isWalking);
         if(!isWalking)
         {
