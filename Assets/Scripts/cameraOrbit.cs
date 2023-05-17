@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class cameraOrbit : MonoBehaviour
 {
-    public Transform Player;
+    public GameObject Player;
     public float MouseSpeed = 3; 
     public float orbitDamping = 10;
 
@@ -19,12 +19,12 @@ public class cameraOrbit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Player.position;
+        transform.position = Player.transform.position;
         localRot.x += Input.GetAxis("Mouse X") * MouseSpeed;
         localRot.y -= Input.GetAxis("Mouse Y") * MouseSpeed;
         
 
-        localRot.y = Mathf.Clamp(localRot.y, 0f, 80);
+        localRot.y = Mathf.Clamp(localRot.y, 0f, 80f);
 
         Quaternion QT = Quaternion.Euler(localRot.y, localRot.x, 0f);
         transform.rotation = Quaternion.Lerp(transform.rotation, QT, Time.deltaTime * orbitDamping);

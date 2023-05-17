@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 2f;
     private bool isGrounded;
 
-    
     Animator m_Animator;
     Rigidbody m_Rigidbody;
     private int count;
@@ -27,6 +26,9 @@ public class PlayerController : MonoBehaviour
     public Vector3 jump;
     Quaternion m_Rotation = Quaternion.identity;
 
+    public Transform cam;
+    int jumpCooldown;
+    int desiredJumpCooldown = 350;
 
     // Start is called before the first frame update
     void Start()
@@ -37,16 +39,35 @@ public class PlayerController : MonoBehaviour
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         count = 0;
 
+        jumpCooldown = 0;
+
         SetConqueredText();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        if (jumpCooldown > 0)
+        {
+            jumpCooldown--;
+        }
 
-        m_Movement.Set(horizontal, 0f, vertical);
+        float horizontal = Input.GetAxisRaw("Horizontal") * movementMultiplier;
+        float vertical = Input.GetAxisRaw("Vertical") * movementMultiplier;
+
+        Vector3 camForward = cam.forward;
+        Vector3 camRight = cam.right;
+        camForward.y = 0;
+        camRight.y = 0;
+
+        Vector3 forwardRelative = vertical * camForward;
+        Vector3 rightRelative = horizontal * camRight;
+
+        Vector3 moveDir = forwardRelative + rightRelative;
+
+        //m_Rigidbody.velocity = new Vector3(moveDir.x, m_Rigidbody.velocity.y, moveDir.z);
+        //transform.forward = new Vector3(m_Rigidbody.velocity.x, 0f, m_Rigidbody.velocity.z);
+        m_Movement.Set(moveDir.x, 0f, moveDir.z);
         m_Movement.Normalize();
 
         bool hasHorizontalInput = !Mathf.Approximately(horizontal, 0f);
@@ -78,7 +99,8 @@ public class PlayerController : MonoBehaviour
             m_Animator.Play("Attack");
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded && jumpCooldown == 0){
+            jumpCooldown = desiredJumpCooldown;
             m_Animator.Play("Jump");
             m_Rigidbody.AddForce(jump * jumpHeight, ForceMode.Impulse);
             isGrounded = false;
@@ -92,8 +114,11 @@ public class PlayerController : MonoBehaviour
         Conquered.text = "Defeated: " + count.ToString();
     }
 
-    void OnTriggerStay(){
-        isGrounded = true;
+    void OnTriggerStay(Collider other){
+        if (other.tag == "Ground")
+        {
+            isGrounded = true;
+        }
     }
 
     void OnAnimatorMove()
