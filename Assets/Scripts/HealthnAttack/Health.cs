@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -18,8 +19,9 @@ public class Health : MonoBehaviour
         health -= amount;
         if(health <= 0)
         {
-
-            Destroy(gameObject);
+            Cursor.lockState = CursorLockMode.Confined; 
+            SceneManager.LoadScene("MainMenu");
+            //Destroy(gameObject);
         }
     }
     
