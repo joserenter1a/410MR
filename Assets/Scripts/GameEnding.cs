@@ -41,6 +41,7 @@ public class GameEnding : MonoBehaviour
 
     void EndLevel()
     {
+        Cursor.lockState = CursorLockMode.Confined; 
         SceneManager.LoadScene("MainMenu");
 
     }

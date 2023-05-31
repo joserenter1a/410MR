@@ -13,6 +13,10 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("ForestScene");
     }
 
+    public void PlayGame3(){
+        SceneManager.LoadScene("TownScene");
+    }
+
     public void QuitGame(){
         Debug.Log("Quit");
         Application.Quit();
