@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4804616546162395606}
   - component: {fileID: 423648202799544682}
   - component: {fileID: 7381410382905013702}
+  - component: {fileID: 7681910398764030168}
   m_Layer: 0
   m_Name: Floor_01_LOD1
   m_TagString: Ground
@@ -92,11 +93,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150271365528407489}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.5, y: 0.2000008, z: 2.5}
   m_Center: {x: -0.00000017881393, y: 0, z: 0}
+--- !u!64 &7681910398764030168
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150271365528407489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6992709610653931031, guid: 3c4740f0dda958143ba94c8d573713bf, type: 3}
 --- !u!1 &6238087254385435985
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +123,7 @@ GameObject:
   - component: {fileID: 6762704467482214379}
   - component: {fileID: 1982688069366040730}
   - component: {fileID: 6515072724829070907}
+  - component: {fileID: 6874973643521750891}
   m_Layer: 0
   m_Name: Floor_01_LITE
   m_TagString: Ground
@@ -168,6 +184,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!64 &6874973643521750891
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6238087254385435985}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &9128434711614787122
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +210,7 @@ GameObject:
   - component: {fileID: 2404375459511482404}
   - component: {fileID: 7648383112506451024}
   - component: {fileID: 8941466626836575397}
+  - component: {fileID: 7635900797994145347}
   m_Layer: 0
   m_Name: Floor_01_LOD0
   m_TagString: Ground
@@ -260,8 +291,22 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9128434711614787122}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.5, y: 0.2000008, z: 2.5}
   m_Center: {x: -0.00000017881393, y: 0, z: 0}
+--- !u!64 &7635900797994145347
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9128434711614787122}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3697730574797734873, guid: 3c4740f0dda958143ba94c8d573713bf, type: 3}
