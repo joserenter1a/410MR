@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 567104378249240564}
+  - component: {fileID: 1116276328107375141}
   m_Layer: 0
   m_Name: House_01_LITE
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7058383698658042873}
   - {fileID: 5194025822778668402}
@@ -56,6 +58,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1116276328107375141
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567104378249240565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &15503246054537941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseWall_02_LITE
       objectReference: {fileID: 0}
+    - target: {fileID: 7294409918876652862, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
 --- !u!4 &6270499332155411029 stripped
@@ -173,6 +192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseWall_02_LITE (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7294409918876652862, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
 --- !u!4 &6213751503477850573 stripped
@@ -297,6 +320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseWall_02_LITE (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7294409918876652862, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
 --- !u!4 &5855199877570269085 stripped
@@ -359,6 +386,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6510818246498819720, guid: bd0bdebacec96e1459c665ca7de79712, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
+    - target: {fileID: 8248182185157007866, guid: bd0bdebacec96e1459c665ca7de79712, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd0bdebacec96e1459c665ca7de79712, type: 3}
 --- !u!4 &2592425021665072614 stripped
@@ -421,6 +456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corner_01_LITE
       objectReference: {fileID: 0}
+    - target: {fileID: 8312504670172251309, guid: 4922535dfb84575409797fc05fc8044e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4922535dfb84575409797fc05fc8044e, type: 3}
 --- !u!4 &5087842043725408731 stripped
@@ -683,6 +722,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 567104378249240564}
     m_Modifications:
+    - target: {fileID: 1078628777275360736, guid: 3cf57bb0c3bf0e14dae5d174e1c87e3a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     - target: {fileID: 8478481607857188777, guid: 3cf57bb0c3bf0e14dae5d174e1c87e3a, type: 3}
       propertyPath: m_Name
       value: HouseBase_03_LITE (3)
@@ -855,6 +898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corner_01_LITE (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8312504670172251309, guid: 4922535dfb84575409797fc05fc8044e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4922535dfb84575409797fc05fc8044e, type: 3}
 --- !u!4 &2083916690689212756 stripped
@@ -917,6 +964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseWall_02_LITE (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7294409918876652862, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
 --- !u!4 &2288698120454807567 stripped
@@ -979,6 +1030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corner_01_LITE (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8312504670172251309, guid: 4922535dfb84575409797fc05fc8044e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4922535dfb84575409797fc05fc8044e, type: 3}
 --- !u!4 &2217203527804440842 stripped
@@ -1055,6 +1110,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 567104378249240564}
     m_Modifications:
+    - target: {fileID: 1078628777275360736, guid: 3cf57bb0c3bf0e14dae5d174e1c87e3a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     - target: {fileID: 8478481607857188777, guid: 3cf57bb0c3bf0e14dae5d174e1c87e3a, type: 3}
       propertyPath: m_Name
       value: HouseBase_03_LITE (2)
@@ -1165,6 +1224,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2891797697678642837, guid: 3b98afa4672041948bc8d9708f0dec82, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b98afa4672041948bc8d9708f0dec82, type: 3}
 --- !u!4 &5194025822778668402 stripped
@@ -1179,6 +1242,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 567104378249240564}
     m_Modifications:
+    - target: {fileID: 1078628777275360736, guid: 3cf57bb0c3bf0e14dae5d174e1c87e3a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     - target: {fileID: 8478481607857188777, guid: 3cf57bb0c3bf0e14dae5d174e1c87e3a, type: 3}
       propertyPath: m_Name
       value: HouseBase_03_LITE (1)
@@ -1241,6 +1308,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 567104378249240564}
     m_Modifications:
+    - target: {fileID: 1078628777275360736, guid: 3cf57bb0c3bf0e14dae5d174e1c87e3a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     - target: {fileID: 8478481607857188777, guid: 3cf57bb0c3bf0e14dae5d174e1c87e3a, type: 3}
       propertyPath: m_Name
       value: HouseBase_03_LITE
@@ -1351,6 +1422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseWall_02_LITE (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7294409918876652862, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
 --- !u!4 &3676169610031711683 stripped
@@ -1427,6 +1502,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 567104378249240564}
     m_Modifications:
+    - target: {fileID: 3985368401661005697, guid: 61b9dd48e54ad8f48b34dd5d75bb8e39, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     - target: {fileID: 5145032889730210091, guid: 61b9dd48e54ad8f48b34dd5d75bb8e39, type: 3}
       propertyPath: m_Name
       value: HouseWall_11_LITE
@@ -1537,6 +1616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseRoof_02_LITE
       objectReference: {fileID: 0}
+    - target: {fileID: 7436970512594133354, guid: 4f2713344093cbc42be1bc8cee65aa05, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2713344093cbc42be1bc8cee65aa05, type: 3}
 --- !u!4 &7058383698658042873 stripped
@@ -1599,6 +1682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseWall_02_LITE (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7294409918876652862, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca12e4d3b8ba552408c001532eecb3ac, type: 3}
 --- !u!4 &2730997715407331997 stripped
@@ -1661,6 +1748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corner_01_LITE (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8312504670172251309, guid: 4922535dfb84575409797fc05fc8044e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c52178879e8e28e4fbbea32638564cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4922535dfb84575409797fc05fc8044e, type: 3}
 --- !u!4 &2450171976350758659 stripped
