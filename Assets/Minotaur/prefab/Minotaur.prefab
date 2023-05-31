@@ -10,6 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 435260}
   - component: {fileID: 9535388}
+  - component: {fileID: 4729497708585412242}
+  - component: {fileID: 5480706072625305473}
+  - component: {fileID: 224859781016460372}
+  - component: {fileID: 1122645219884255904}
+  - component: {fileID: 8299733846486044241}
+  - component: {fileID: 850469204392555475}
   m_Layer: 0
   m_Name: Minotaur
   m_TagString: Untagged
@@ -60,6 +66,98 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &4729497708585412242
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 28, y: 100, z: 32.5}
+  m_Center: {x: 0, y: 69, z: 1}
+--- !u!114 &5480706072625305473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2210c028bcfd7479e2a240aa089dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  damage: 5
+--- !u!114 &224859781016460372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a817048928de2549ad3a2781159533e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingHealth: 100
+  health: 100
+--- !u!114 &1122645219884255904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714fff21e9abb8e43a1deb7a0f103d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8299733846486044241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a5f61400ee0b04787e547804af643b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  fullHealth: {fileID: 21300000, guid: 44291bc091393524fa3e9d604fe135e8, type: 3}
+  lilHurt: {fileID: 21300000, guid: 41dbfbf56afda4f4eb56229a20381ad1, type: 3}
+  halfHurt: {fileID: 21300000, guid: 43cac461f771c534781e75a57b086f71, type: 3}
+  hellaHurt: {fileID: 21300000, guid: 8321bb436588b6b4a80a026ae91895e0, type: 3}
+  hellaDead: {fileID: 21300000, guid: 686e480fd3be61042ab2c14d95ecb769, type: 3}
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerHealth: {fileID: 224859781016460372}
+--- !u!114 &850469204392555475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112b0dc33877a6449803a540b1cd2efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &135262
 GameObject:
   m_ObjectHideFlags: 0
