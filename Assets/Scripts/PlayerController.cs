@@ -27,6 +27,17 @@ public class PlayerController : MonoBehaviour
     int jumpCooldown;
     int desiredJumpCooldown = 350;
 
+    public GameObject fireballPrefab;
+    public float fireballSpeed = 10f;
+    public int fireballDamage = 10;
+    public float fireballCooldown = 3f;
+    public float lastFireballTime;
+
+    //public bool timeSlowActive = false; // Variable to track if time slow is active
+    //public float timeSlowFactor = 0.5f; // The factor by which time is slowed down
+
+    public SlowAbility slowAbility;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -103,6 +114,20 @@ public class PlayerController : MonoBehaviour
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
+
+        if(Input.GetKeyDown(KeyCode.Q) && CanShootFireball())
+        {
+            SpawnFireball();
+            lastFireballTime = Time.time;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            slowAbility.ActivateSlowAbility();
+            //timeSlowActive = !timeSlowActive; // Toggle the time slow activation
+            //Time.timeScale = timeSlowActive ? timeSlowFactor : 1f; // Adjust the time scale based on timeSlowActive
+
+        }
     }
 
 
@@ -123,5 +148,19 @@ public class PlayerController : MonoBehaviour
         m_Animator.SetBool("Attack", true);
     }
 
+    private bool CanShootFireball()
+    {
+        return Time.time - lastFireballTime >= fireballCooldown;
+    }
+
+    private void SpawnFireball()
+    {
+        
+        GameObject fireball = Instantiate(fireballPrefab, transform.position + transform.up * 1.2f + transform.forward, transform.rotation);
+        Fireball fireballComponent = fireball.GetComponent<Fireball>();
+        fireballComponent.speed = fireballSpeed;
+        fireballComponent.damage = fireballDamage;
+    }
+    
 }
 
