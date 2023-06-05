@@ -30,6 +30,9 @@ public class RawImageController : MonoBehaviour
             myScript.enabled = true;
             //gameObject.GetComponent<SprintController>().enabled = true;
         }
+        if (! IsPlayerNearChest()) {
+            rawImage.enabled = false;
+        }
 
     }
 
