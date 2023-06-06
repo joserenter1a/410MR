@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     float m_idleTime = 0.4f;
     public float jumpHeight = 2f;
     private bool isGrounded;
+    public bool hasKey;
 
     Animator m_Animator;
     Rigidbody m_Rigidbody;
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
-
+        hasKey = false;
         jumpCooldown = 0;
 
     }
@@ -141,6 +142,11 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Ground")
         {
             isGrounded = true;
+        }
+        if (other.tag == "Key")
+        {
+            hasKey = true;
+            Destroy(other.gameObject);
         }
     }
 

@@ -8,6 +8,7 @@ public class GameEnding : MonoBehaviour
     public float fadeDuration = 1f;
     public float displayImageDuration = 1f;
     public GameObject player;
+    public bool canFinish;
 
     bool m_IsPlayerAtExit;
     bool m_IsPlayerCaught;
@@ -19,7 +20,11 @@ public class GameEnding : MonoBehaviour
         if (other.gameObject == player)
         {
             m_IsPlayerAtExit = true;
+            if(other.GetComponent<PlayerController>().hasKey){
+                canFinish = true;
         }
+        }
+        
     }
 
     public void CaughtPlayer ()
@@ -31,7 +36,9 @@ public class GameEnding : MonoBehaviour
     {
         if (m_IsPlayerAtExit)
         {
-            EndLevel();
+            if(canFinish){
+                EndLevel();
+            }
         }
         else if (m_IsPlayerCaught)
         {
