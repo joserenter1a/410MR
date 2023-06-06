@@ -8,6 +8,9 @@ public class AudioManager : MonoBehaviour
     private AudioSource background;
     private AudioSource Attack;
 	private AudioSource walking;
+
+    private float desiredAttackCooldown = 350;
+    private float attackCooldown = 0;
  
     private void Start()
     {
@@ -34,9 +37,11 @@ public class AudioManager : MonoBehaviour
         }
         Attack = GetComponent<AudioSource>();
 
-        if(Input.GetMouseButtonDown(0))
+        attackCooldown--;
+        if(Input.GetMouseButtonDown(0) && attackCooldown <= 0)
         {
             Attack.Play();
+            attackCooldown = desiredAttackCooldown;
         }
     }
 

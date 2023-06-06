@@ -7,14 +7,19 @@ public class AttackAudio : MonoBehaviour
 {
     private AudioSource Attack;
 
+    private float desiredAttackCooldown = 350;
+    private float attackCooldown = 0;
+
     private void Update()
     {
 
         Attack = GetComponent<AudioSource>();
 
-        if(Input.GetMouseButtonDown(0))
+        attackCooldown--;
+        if(Input.GetMouseButtonDown(0) && attackCooldown <= 0)
         {
             Attack.Play();
+            attackCooldown = desiredAttackCooldown;
         }
     }
 

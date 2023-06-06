@@ -177,7 +177,8 @@ public class WaveSpawner : MonoBehaviour
             waveTimer -= Time.fixedDeltaTime;
         }
  
-        if(waveTimer<=0 && spawnedEnemies.Count <=0)
+        // if(waveTimer<=0 && spawnedEnemies.Count <=0) // go back to this if broken
+        if(spawnedEnemies.Count <=0)
         {
             currWave++;
             GenerateWave();

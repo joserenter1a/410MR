@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public float movementMultiplier = 0.048f;
     public float turnSpeed = 30f;
+    private float desiredAttackCooldown = 350;
+    private float attackCooldown = 0;
     float m_timer = 0.0f;
     float m_idleTime = 0.4f;
     public float jumpHeight = 2f;
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpCooldown--;
         }
+        
 
         float horizontal = Input.GetAxisRaw("Horizontal") * movementMultiplier;
         float vertical = Input.GetAxisRaw("Vertical") * movementMultiplier;
@@ -100,9 +103,12 @@ public class PlayerController : MonoBehaviour
             m_Animator.SetBool("IsWalking", true);
             m_timer = 0f;
         }
-        if(Input.GetMouseButtonDown(0))
+
+        attackCooldown--;
+        if(Input.GetMouseButtonDown(0) && attackCooldown <= 0)
         {
             m_Animator.Play("Attack");
+            attackCooldown = desiredAttackCooldown;
         }
 
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded && jumpCooldown == 0){
