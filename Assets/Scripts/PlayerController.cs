@@ -30,16 +30,25 @@ public class PlayerController : MonoBehaviour
     int jumpCooldown;
     int desiredJumpCooldown = 350;
 
-    public GameObject fireballPrefab;
+    public GameObject fireballPrefab; 
     public float fireballSpeed = 10f;
-    public int fireballDamage = 10;
+    public int fireballDamage = 25;
     public float fireballCooldown = 3f;
     public float lastFireballTime;
+
+    private bool isTimeSlowActive = false;
+    private float slowdownDuration = 5f; // Duration of the slowdown effect
+    private float currentSlowdownTime = 0f; // Current remaining time of the slowdown effect
+
+
 
     //public bool timeSlowActive = false; // Variable to track if time slow is active
     //public float timeSlowFactor = 0.5f; // The factor by which time is slowed down
 
     public SlowAbility slowAbility;
+    public float slowdownAmount = 2f;
+    public float slowdownCooldown = 15f;
+    public float lastSlowAbility = -1000f;
 
     // Start is called before the first frame update
     void Start()
@@ -128,13 +137,30 @@ public class PlayerController : MonoBehaviour
             lastFireballTime = Time.time;
         }
 
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.F) && CanFreezeTime())
         {
-            slowAbility.ActivateSlowAbility();
+            //slowAbility.ActivateSlowAbility();
             //timeSlowActive = !timeSlowActive; // Toggle the time slow activation
             //Time.timeScale = timeSlowActive ? timeSlowFactor : 1f; // Adjust the time scale based on timeSlowActive
-
+            //slowAbility.ActivateSlowAbility(slowdownAmount);
+            ToggleSlowAbility();
+            lastSlowAbility = Time.time;
+            //lastSlowAbility = Time.time;
+            m_Animator.Play("Shout");
         }
+
+        
+        if (isTimeSlowActive)
+        {
+            currentSlowdownTime -= Time.deltaTime; // Decrease the current remaining time of the slowdown effect
+
+            if (currentSlowdownTime <= 0)
+            {
+                isTimeSlowActive = false; // Disable the time slow effect
+                ResetEnemySpeed(); // Reset the enemy's speed to its original value
+            }
+        }
+                
     }
 
 
@@ -173,6 +199,41 @@ public class PlayerController : MonoBehaviour
         fireballComponent.speed = fireballSpeed;
         fireballComponent.damage = fireballDamage;
     }
-    
-}
 
+    private bool CanFreezeTime()
+    {
+        return Time.time - lastSlowAbility >= slowdownCooldown;
+    }
+
+    private void ToggleSlowAbility()
+    {
+        isTimeSlowActive = !isTimeSlowActive; // Toggle the time slow activation
+
+        if (isTimeSlowActive)
+        {         
+            slowAbility.ActivateSlowAbility(slowdownAmount); // Activate slow ability with the specified slowdown amount
+            currentSlowdownTime = slowdownDuration;
+        }
+        else
+        {
+            ResetEnemySpeed(); // Reset the enemy's speed to its original value
+        }
+
+        
+
+    }
+
+    private void ResetEnemySpeed()
+    {
+        GameObject[] humanObjects = GameObject.FindGameObjectsWithTag("Human");
+
+        foreach (GameObject humanObject in humanObjects)
+        {
+            EnemyHumanMaleMovement enemy = humanObject.GetComponent<EnemyHumanMaleMovement>();
+            if (enemy != null)
+            {
+                enemy.ResetSpeed(); // Reset the enemy's speed to its original value
+            }
+        }
+    }
+}
