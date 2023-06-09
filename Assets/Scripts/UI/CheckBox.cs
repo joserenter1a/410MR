@@ -5,7 +5,8 @@ using UnityEngine;
 public class CheckBox : MonoBehaviour
 {
     public GameObject[] checkboxes;
-    private bool hasKey = false; 
+    public PlayerController player;
+    private bool hasKey ; 
     private bool isActive = true;
 
     void Start()
@@ -15,9 +16,11 @@ public class CheckBox : MonoBehaviour
 
     private void Update()
     {
+        hasKey = player.GetComponent<PlayerController>().hasKey;
         if (!hasKey)
         {
             checkboxes[0].SetActive(true);
+            checkboxes[1].SetActive(false);
         }
         else 
         {
