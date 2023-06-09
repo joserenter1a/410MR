@@ -39,10 +39,11 @@ public class EnemyHealth : MonoBehaviour
         if(currentHealth <= 0)
         {
             m_Animator.Play("Death");
-            m_Animator.SetBool("Death", true);
+            m_Animator.SetBool("IsDying", true);
             count += 1; 
             SetConqueredText();
             dying = true;
+            Destroy(gameObject);
         }
     }
 
