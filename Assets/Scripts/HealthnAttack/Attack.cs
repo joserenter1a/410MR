@@ -38,7 +38,7 @@ public class Attack : MonoBehaviour
             m_AnimatorHuman = enemyCollider.GetComponent<Animator>();
             if(Human != null)
             {
-                m_AnimatorHuman.SetBool("GetHit", true);
+                // m_AnimatorHuman.SetBool("GetHit", true);
                 Vector3 kbDirection = (enemyCollider.transform.position - transform.position).normalized;
                 Human.AddForce(kbDirection * knockback, ForceMode.Impulse);
             }
