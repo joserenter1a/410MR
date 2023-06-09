@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Fireball : MonoBehaviour
 {
     public float speed = 10f;
-    public int damage = 10;
+    public int damage = 50;
+    public float maxDistance = 100f;
 
     private Rigidbody rb;
+    private Vector3 startingPosition;
+
 
     private void Awake()
     {
@@ -18,6 +22,10 @@ public class Fireball : MonoBehaviour
     {
         // Set the initial velocity of the fireball
         rb.velocity = transform.forward * speed;
+        //startingPosition = transform.position; // Record the starting position
+
+        Destroy(gameObject, 2f);
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,14 +33,14 @@ public class Fireball : MonoBehaviour
         // Check if the collided object has the "Enemy" tag
         if (other.CompareTag("Human"))
         {
-            // Apply damage to the enemy
-            //Enemy enemy = other.GetComponent<Enemy>();
-            //if (enemy != null)
-           // {
-          //      enemy.TakeDamage(damage);
-          //  }
+            EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
 
-            // Destroy the fireball
-         //   Destroy(gameObject);
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+            }
+
+            // Destroy the fireball object
+            //Destroy(gameObject);
         }
 }   }
