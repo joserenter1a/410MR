@@ -29,6 +29,7 @@ public class TimerScript : MonoBehaviour
             else
             {
                 TimerOn = false;
+                Cursor.lockState = CursorLockMode.Confined; 
                 SceneManager.LoadScene("MainMenuFinal");
             }
         }

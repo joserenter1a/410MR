@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
         if(health <= 0)
         {
             Cursor.lockState = CursorLockMode.Confined; 
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainMenuFinal");
             Destroy(gameObject);
         }
     }
